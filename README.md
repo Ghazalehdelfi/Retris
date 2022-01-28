@@ -1,5 +1,5 @@
 # Retroactive
 
-Create with vite
+Created with vite
 
 `npm run dev` for dev environment
