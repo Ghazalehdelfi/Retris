@@ -1,0 +1,151 @@
+@startuml
+rectangle "url: ./home [not logged in]" as strangersHomePage{
+    rectangle "Login"{
+    }
+    rectangle "Sign up"{
+    }
+}
+
+rectangle "url: ./home [logged in]" as homePage{
+    map Teams{
+        1 => boogiwoogi
+        2 => woogiboogi
+        3 => add new
+    }
+    map Sessions{
+        1 => sprint 22
+        2 => sprint 23
+        3 => add new
+    }
+
+    rectangle "Personal dashboard" as personalDashboard{
+        rectangle "Choose team drop down"{
+        }
+        together stats {
+            rectangle "personal Stat 1"{
+            }
+            rectangle "personal Stat 2"{
+            }
+            rectangle "personal Stat 3"{
+            }
+        }
+        "Choose team drop down" -[hidden]d-> stats
+    }
+    Sessions -[hidden]d-> personalDashboard
+    Teams -[hidden]d-> personalDashboard
+}
+
+rectangle "url: ./team/<team>" as teamPage {
+
+    rectangle "control bar"{
+        rectangle "settings"{
+        }
+        rectangle "make new session"{
+        }
+        rectangle "share link"{
+        }
+    }
+    map Members{
+        1 => boo
+        2 => foo
+        3 => add new
+    }
+    map TeamSessions{
+        1 => sprint 22
+        2 => sprint 23
+    }
+
+    rectangle "dashboard"{
+
+        together statsTeam {
+            rectangle "team Stat 1"{
+            }
+            rectangle "team Stat 2"{
+            }
+            rectangle "team Stat 3"{
+            }
+        }
+    }
+    "control bar"-[hidden]d-> TeamSessions
+    TeamSessions -[hidden]d-> "dashboard"
+    Members -[hidden]d-> "dashboard"
+}
+
+rectangle "url: ./team/<team>/edit" as teamEditPage {
+
+    map EditMembers{
+        1 => boo x
+        2 => foo x
+        3 => add new
+    }
+
+    map EditQuestions{
+        1 => cool sprint, or what? x
+        2 => can you take this any more?  x
+        3 => add new
+    }
+
+    map otherSettings{
+        allow to balabla => true
+        number of votes => 3
+        answers scale => 10
+    }
+
+}
+
+rectangle "url: ./<team>/<session>/pending" as pendingSessionPage {
+
+    map answerFixedQuestions{
+        how you are feeling? => 1..10
+        privious => next
+    }
+
+    map prepareStickers{
+        1 => cool sprint, or what? x
+        2 => can you take this any more?  x
+        3 => add statement
+        4 => add feeling
+        5 => add suggestion
+    }
+    answerFixedQuestions -[hidden]r-> prepareStickers
+
+}
+
+rectangle "url: ./<team>/<session>/presenter" as sessionShareViewPage{
+    rectangle "session controller" as sessionController{
+        stratSession -> waitingForQuestions
+        waitingForQuestions -> showAverageResults
+        showAverageResults-> showAllStickers
+        showAllStickers-> showResults
+        showResults -> tokenTime
+        tokenTime-> end
+        end-> export
+    }
+    rectangle "session share window" as mainWindow{
+    }
+    rectangle "notepad"{
+    }
+    sessionController -[hidden]d-> mainWindow
+    mainWindow -[hidden]d-> "notepad"
+
+}
+
+rectangle "url: ./<team>/<session>/live" as sessionUserPage{
+    rectangle "session sections" as sessionSections{
+        pending -> answerQuestions
+        answerQuestions -> writeAndAnswerStickers
+        writeAndAnswerStickers-> giveYourToken
+    }
+    rectangle "session user window" as mainUserWindow{
+    }
+    sessionSections -[hidden]d-> mainUserWindow
+}
+
+strangersHomePage -[hidden]d-> homePage
+homePage  -[hidden]d-> teamPage
+teamPage -[hidden]d-> teamEditPage
+teamEditPage -[hidden]d-> pendingSessionPage
+pendingSessionPage -[hidden]d-> sessionShareViewPage
+sessionShareViewPage -[hidden]d-> sessionUserPage
+
+@enduml
