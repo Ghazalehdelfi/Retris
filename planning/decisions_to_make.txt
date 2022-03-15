@@ -1,0 +1,16 @@
+Technology stack to use:
+
+* open connection to recieve stickers of others in live session
+- websocket? 
+
+* rest request based on db for everything else
+
+* state management?
+- redux
+- something with bear
+
+* where to deploy?
+- heroku?
+- 
+
+* push notification for new memebers?
