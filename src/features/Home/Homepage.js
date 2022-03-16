@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useNavigate, Navigate, Outlet, BrowserRouter as Router,  Routes,  Route} from "react-router-dom";
 import Dashboard from './Dashboard'

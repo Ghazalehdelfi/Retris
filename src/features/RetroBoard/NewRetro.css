@@ -1,0 +1,24 @@
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh;
+}
+.column {
+    padding:10px;
+    flex-grow: 1;
+    height: 100%;
+}
+.box{
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    flex-grow: 1;
+    height:90%;
+}
+.box-title{
+    text-align: center;
+    font-weight:600;
+    font-size:larger;
+    padding:5px;
+    font-family: "Roboto";
+}

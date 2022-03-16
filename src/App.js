@@ -3,6 +3,10 @@ import Login from './features/Login';
 import Home from './features/Home';
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet, BrowserRouter as Router,  Routes,  Route} from "react-router-dom";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 import './App.css';
 
 const PrivateRoute = () => {
