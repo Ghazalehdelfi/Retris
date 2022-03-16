@@ -1,10 +1,15 @@
-import Button from '@mui/material/Button';
 import * as React from 'react';
+import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { useNavigate, Navigate, Outlet, BrowserRouter as Router,  Routes,  Route} from "react-router-dom";
+import Dashboard from './Dashboard'
+import NewRetro from '../RetroBoard/NewRetro'
+import PrevRetro from '../RetroBoard/PrevRetro'
+import Token from '../Token'
 import './Homepage.css'
 
 function TabPanel(props) {
@@ -20,7 +25,7 @@ function TabPanel(props) {
       >
         {value === index && (
           <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
+            {children}
           </Box>
         )}
       </div>
@@ -40,9 +45,10 @@ function a11yProps(index) {
     };
   }
 
-const HomePage = () => {
+const HomeTabs = () => {
     
     const [value, setValue] = React.useState(0);
+    const navigate = useNavigate();
 
     const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -51,7 +57,10 @@ const HomePage = () => {
     return(
         <div>
             <div className='Actionbar'>
-                <Button sx={{width: '120px', marginLeft:'auto', marginTop:'20px', marginRight:'20px', padding:'10px', float:'right'}} onClick={()=>{}} variant="contained">Join retro</Button>
+                <Button sx={{width: '120px', marginLeft:'auto', marginTop:'20px', marginRight:'20px', padding:'10px', float:'right'}} 
+                  onClick={()=>{navigate("/home/newretro")}} variant="contained">
+                    Join retro
+                </Button>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs sx={{borderBottom:'1px grey'}} value={value} onChange={handleChange} aria-label="basic tabs example">
                         <Tab label="Dashboard" {...a11yProps(0)} />
@@ -60,19 +69,26 @@ const HomePage = () => {
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
-                Dashboard
+                    {<Dashboard />}
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                Give tokens
+                  {<Token/>}
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                Previous Retro
+                  {<PrevRetro/>}
                 </TabPanel>
-            </div>
-            <div className='Body'>
             </div>
         </div>
     )
+}
+
+const HomePage = () => {
+  return(
+    <Routes> 
+      <Route exact path="/" element={<HomeTabs/>}/>
+      <Route path="/newretro" element={<NewRetro/>}/>
+    </Routes>
+  )
 }
 
 export default HomePage
