@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export const Authentication = (dispatch, {userName,password}) => {
+  console.log(userName,password)
+  if(userName==='meep' && password==='moop') {
+    dispatch(setAuthentication(true))
+    return true
+  }
+  return false
+}
+
 const initialState = {
   isAuth: false
 };
