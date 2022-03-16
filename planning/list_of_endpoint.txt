@@ -1,0 +1,48 @@
+REGISTER: /register/{username,password}
+LOGIN:: /login/{username,password}
+LOGOUT: /logout/-h-user
+DELETE_ACCOUNT: /delete/account/-h-user
+
+ADD_TEAM: /add/team/{name, questions, newQuestions, settings}/-h-user
+EDIT_TEAM: /edit/team/{name, questions, newQuestions, settings}/-h-user
+GET_TEAM_INFO_ALL: /get/team/all/<team>/-h-user
+GET_TEAM_MEMBERS: /get/team/memebrs/<team>/-h-user
+GET_TEAM_SESSIONS: /get/team/sessions/<team>/-h-user
+JOIN_TEAM: /join/team/<team>/-h-user
+DELETE_TEAM: /delete/team/<team>/-h-user
+GET_TEAM_JOIN_LINK: /get/teamlink/<team>/-h-user
+
+GET_ALL_QUESTIONS: /get/questions/all/<page>
+GET_TOP_QUESTIONS: /get/questions/top
+
+
+ADD_SESSION: /add/session/<team>/<name>/-h-user
+SET_SESSION_STATUS: /set/status/session/<team>/<name>/<status>/-h-user
+DELETE_SESSION: /delete/session/<team>/<name>/-h-user
+GET_SESSION_LINK: /get/session/link/<team>/<name>/-h-user
+
+ANSWER_QUESTION: /add/answer/<team>/<session>/<question>/<answer>/-h-user
+ADD_STICKER: /add/sticker/<team>/<session>/{content, type}/-h-user
+DELETE_STICKER: /delete/sticker/<team>/<session>/<sticker>/-h-user
+EDIT_STICKER: /edit/sticker/<team>/<session>/<sticker>/{content, type}/-h-user
+REACT_TO_STICKER: /react/sticker/<team>/<session>/<sticker>/<reaction>/-h-user
+GET_STICKERS: /get/stickesr/<team>/<session>/-h-user
+GET_STICKER_END_RESULT: /get/stickesr_results/<team>/<session>/-h-user
+
+GIVE_TOKEN: /add/toke/<team>/<session>/<member>/-h-user
+
+SAVE_NOTES: /add/note/<team>/<session>/{content}/-h-user
+
+GET_USER_TOKEN_RESULTS: /get/my/token/<team>/<session>/-h-user
+GET_TEAM_QUESTION_RESULT: /get/result/question/<team>/<session>/<question>/-h-user
+GET_TEAM_QUESTIONS_RESULT: /get/result/questions/<team>/<session>/-h-user
+
+GET_USER_TIMESERIES_QUESTIONS_RESULT: /get/my/result/questions/bytime/<team>/{from,to}/-h-user
+GET_USER_TIMESERIES_QUESTION_RESULT: /get/my/result/question/bytime/<team>/<question>/{from,to}/-h-user
+GET_USER_TIMESERIES_TOKEN_RESULT: /get/my/result/token/bytime/<team>/{from,to}/-h-user
+GET_TEAM_TIMESERIES_QUESTION_RESULT: /get/result/question/bytime/<team>/<question>/{from,to}/-h-user
+GET_TEAM_TIMESERIES_QUESTIONS_RESULT: /get/result/questions/bytime/<team>/{from,to}/-h-user
+
+GET_USER_TEAMS: /get/my/teams/-h-user
+GET_USER_SESSIONS: /get/my/sessions/-h-user
+

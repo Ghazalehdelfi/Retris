@@ -1,0 +1,73 @@
+* userAuth
+- id
+- user
+- password
+- time joined
+- email ?
+
+* user
+- id 
+- time
+- roll
+- teams
+- sessions
+- setting
+
+* token
+- team
+- session
+- time
+- user
+- number of tokens recieved
+
+* team
+- id
+- name
+- time
+- memebers
+- sessions
+- questions
+- past questions
+- settings (json)
+
+
+* session
+- id
+- team
+- name
+- time
+- questions
+- setting
+- status
+- notes
+
+* question
+- id 
+- user
+- time
+- content
+
+* answer
+- id 
+- id question
+- time 
+- user
+- team
+- session
+- value
+
+* stickesr
+- id
+- time
+- session
+- type
+- user
+- content 
+- status (pending/posted)
+- reactions json {agree:users[],, disagree:users[], pass:users[]}
+(save a summary html in blobstorage, empty a week old data)
+
+
+
+questions:
+one schema per team?
