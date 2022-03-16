@@ -14,7 +14,6 @@ const Login = () => {
 
     const Authenticate = () => {
       const a = Authentication(dispatch, {userName, password})
-      console.log(a)
       if(a) {
         navigate("/")
       }
