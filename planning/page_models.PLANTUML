@@ -19,44 +19,14 @@ rectangle "url: ./home [logged in]" as homePage{
     }
 
     rectangle "Personal dashboard" as personalDashboard{
-        rectangle "Choose team drop down"{
-        }
         together stats {
-            rectangle "personal Stat 1"{
+            rectangle "personal Stat 1 - token plot"{
             }
             rectangle "personal Stat 2"{
             }
             rectangle "personal Stat 3"{
             }
         }
-        "Choose team drop down" -[hidden]d-> stats
-    }
-    Sessions -[hidden]d-> personalDashboard
-    Teams -[hidden]d-> personalDashboard
-}
-
-rectangle "url: ./team/<team>" as teamPage {
-
-    rectangle "control bar"{
-        rectangle "settings"{
-        }
-        rectangle "make new session"{
-        }
-        rectangle "share link"{
-        }
-    }
-    map Members{
-        1 => boo
-        2 => foo
-        3 => add new
-    }
-    map TeamSessions{
-        1 => sprint 22
-        2 => sprint 23
-    }
-
-    rectangle "dashboard"{
-
         together statsTeam {
             rectangle "team Stat 1"{
             }
@@ -66,9 +36,8 @@ rectangle "url: ./team/<team>" as teamPage {
             }
         }
     }
-    "control bar"-[hidden]d-> TeamSessions
-    TeamSessions -[hidden]d-> "dashboard"
-    Members -[hidden]d-> "dashboard"
+    Sessions -[hidden]d-> personalDashboard
+    Teams -[hidden]d-> personalDashboard
 }
 
 rectangle "url: ./team/<team>/edit" as teamEditPage {
@@ -107,18 +76,22 @@ rectangle "url: ./<team>/<session>/pending" as pendingSessionPage {
         4 => add feeling
         5 => add suggestion
     }
+    
+    map giveToken{
+      choose team mate => asqarzadeh
+    }
     answerFixedQuestions -[hidden]r-> prepareStickers
+    prepareStickers -[hidden]r-> giveToken
 
 }
 
 rectangle "url: ./<team>/<session>/presenter" as sessionShareViewPage{
     rectangle "session controller" as sessionController{
-        stratSession -> waitingForQuestions
-        waitingForQuestions -> showAverageResults
+        stratSession -> waitingForQuestionsandTokens
+        waitingForQuestionsandTokens -> showAverageResults
         showAverageResults-> showAllStickers
         showAllStickers-> showResults
-        showResults -> tokenTime
-        tokenTime-> end
+        showResults -> end
         end-> export
     }
     rectangle "session share window" as mainWindow{
@@ -133,8 +106,8 @@ rectangle "url: ./<team>/<session>/presenter" as sessionShareViewPage{
 rectangle "url: ./<team>/<session>/live" as sessionUserPage{
     rectangle "session sections" as sessionSections{
         pending -> answerQuestions
-        answerQuestions -> writeAndAnswerStickers
-        writeAndAnswerStickers-> giveYourToken
+        answerQuestions -> giveYourToken
+        giveYourToken -> writeAndAnswerStickers
     }
     rectangle "session user window" as mainUserWindow{
     }
