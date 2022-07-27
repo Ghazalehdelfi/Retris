@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 100vh;
+    padding:20px 10px;
+    height: calc(100vh - 50px);
 }
 .retro-column {
     padding:10px;
@@ -20,9 +21,4 @@
     font-size:larger;
     padding:5px;
     font-family: "Roboto";
-}
-
-.root {
-    display: flex;
-    flex-direction: column;
 }

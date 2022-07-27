@@ -1,7 +1,9 @@
-import { Typography, Button, Paper, Stack } from "@mui/material";
+import { Button, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Grid from "@mui/material/Grid";
+import RetroColumn from "../../common/components/RetroColumn/RetroColumn";
+import RetroCard from "../../common/components/RetroCard/RetroCard";
 import "./NewRetro.css";
 
 const NewRetro = () => {
@@ -27,76 +29,52 @@ const NewRetro = () => {
         </Button>
       </div>
       <div className="columns">
-      <Grid container spacing={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={4}>
-            <Paper>good</Paper>
+        <Grid container direction="column">
+          <Grid container item direction="row" xs={1} spacing={2}>
+            <Grid item xs={4}>
+              <Typography align="center" variant="h4">
+                Good
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Typography align="center" variant="h4">
+                Improve
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Typography align="center" variant="h4">
+                Action
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <Paper>bad</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>worse</Paper>
+          <Grid container item direction="row" xs={11} spacing={3}>
+            <Grid item xs={4}>
+              <RetroColumn>
+                <RetroCard text={"hi"} color={"#E1EEC7"} />
+                <RetroCard text={"ho"} color={"#E1EEC7"} />
+                <RetroCard text={"hi"} color={"#E1EEC7"} />
+                <RetroCard text={"ho"} color={"#E1EEC7"} />
+              </RetroColumn>
+            </Grid>
+            <Grid item xs={4}>
+              <RetroColumn>
+                <RetroCard text={"hi"} color={"#FF7377"} />
+                <RetroCard text={"ho"} color={"#FF7377"} />
+                <RetroCard text={"hi"} color={"#FF7377"} />
+                <RetroCard text={"ho"} color={"#FF7377"} />
+              </RetroColumn>
+            </Grid>
+            <Grid item xs={4}>
+              <RetroColumn>
+                <RetroCard text={"hi"} color={"#e1f1fd"} />
+                <RetroCard text={"ho"} color={"#e1f1fd"} />
+                <RetroCard text={"hi"} color={"#e1f1fd"} />
+                <RetroCard text={"ho"} color={"#e1f1fd"} />   
+              </RetroColumn>
+            </Grid>
           </Grid>
         </Grid>
-        <Grid container spacing={3}>
-        <Grid item xs={4}>
-            <Paper>good1</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>bad1</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper>worse1</Paper>
-          </Grid>
-        </Grid>
-        
-        {/* <Grid item xs={4}>
-          <Paper>xs=8</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper>xs=4</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper>xs=4</Paper>
-        </Grid> */}
-      </Grid>
       </div>
-      {/* <div className="columns">
-        <div className="retro-column">
-          <div className="box-title">
-            <Typography variant="h5">What was good</Typography>
-          </div>
-          <Paper
-            className="box"
-            elevation={3}
-            sx={{
-              paddingTop: "10px",
-              paddingLeft: "5px",
-              paddingRight: "5px",
-            }}
-          >
-          </Paper>
-        </div>
-        <div className="retro-column">
-          <div className="box-title">
-            <Typography variant="h5">What needs improvement</Typography>
-          </div>
-          <Paper
-            className="box"
-            elevation={3}
-          ></Paper>
-        </div>
-        <div className="retro-column">
-          <div className="box-title">
-            <Typography variant="h5">Action items</Typography>
-          </div>
-          <Paper
-            className="box"
-            elevation={3}
-          ></Paper>
-        </div>
-      </div> */}
     </div>
   );
 };
