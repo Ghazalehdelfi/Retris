@@ -4,14 +4,13 @@
     justify-content: space-around;
     height: 100vh;
 }
-.column {
+.retro-column {
     padding:10px;
     flex-grow: 1;
     height: 100%;
 }
 .box{
-    border: 2px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     flex-grow: 1;
     height:90%;
 }
@@ -21,4 +20,9 @@
     font-size:larger;
     padding:5px;
     font-family: "Roboto";
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
 }
