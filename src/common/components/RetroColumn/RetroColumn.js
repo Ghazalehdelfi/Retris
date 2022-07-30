@@ -3,7 +3,7 @@ import {Paper} from "@mui/material";
 
 const RetroColumn = ({children}) => {
     return(
-        <Paper sx={{height:'80vh', overflow:'hidden'}}>
+        <Paper sx={{height:'50vh', overflow:'auto'}}>
             {children}
         </Paper>)
 }

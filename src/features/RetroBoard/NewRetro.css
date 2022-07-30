@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding:20px 10px;
-    height: calc(100vh - 50px);
+    height: calc(65vh - 50px);
 }
 .retro-column {
     padding:10px;
@@ -14,6 +14,9 @@
     border-radius: 5px;
     flex-grow: 1;
     height:90%;
+}
+.workpad{
+    height:auto;
 }
 .box-title{
     text-align: center;

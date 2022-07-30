@@ -50,7 +50,7 @@ const NewRetro = () => {
           <Grid container item direction="row" xs={11} spacing={3}>
             <Grid item xs={4}>
               <RetroColumn>
-                <RetroCard text={"hi"} color={"#E1EEC7"} />
+                <RetroCard text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."} color={"#E1EEC7"} />
                 <RetroCard text={"ho"} color={"#E1EEC7"} />
                 <RetroCard text={"hi"} color={"#E1EEC7"} />
                 <RetroCard text={"ho"} color={"#E1EEC7"} />
@@ -74,6 +74,11 @@ const NewRetro = () => {
             </Grid>
           </Grid>
         </Grid>
+      </div>
+      <div className="workpad">
+        <Paper sx={{height:'20vh'}}>
+        personal workpad
+        </Paper>
       </div>
     </div>
   );
